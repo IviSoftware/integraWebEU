@@ -1,0 +1,21 @@
+---
+const { title, headerImageUrl, headerText, headerTitle, images } = Astro.props;
+import Layout from "../layouts/Layout.astro";
+import ImageHeader from "../components/ImageHeader.astro";
+import NavBar from "../components/NavBar.astro";
+import ImageGrid from "./ImageGrid.astro";
+---
+
+<Layout title={title}>
+  <main>
+    <NavBar />
+    <header class="m-0">
+      <ImageHeader
+        imageUrl={headerImageUrl}
+        text={headerText}
+        title={headerTitle}
+      />
+      <ImageGrid images={images} />
+    </header>
+  </main>
+</Layout>

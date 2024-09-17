@@ -1,12 +1,22 @@
 ---
-const { imageUrl, title, color } = Astro.props;
+const { imageUrl, title, color, url } = Astro.props;
 ---
 
-<div class="CardLarge relative w-full flex items-center p-4" style={`background-image: url(${imageUrl});`}>
+<a
+  href={url}
+  class="CardLarge relative w-full flex items-center p-4"
+  style={`background-image: url(${imageUrl});`}
+>
   <!-- Degradado delante de la imagen pero detrás del texto -->
-  <div class="gradientOverlay absolute inset-0" style={`background: linear-gradient(-90deg, transparent, rgba(${color}, 0.7))`}></div>
-  <p class="textCard font-bold text-xl md:text-2xl text-white relative z-10">{title}</p>
-</div>
+  <div
+    class="gradientOverlay absolute inset-0"
+    style={`background: linear-gradient(-90deg, transparent, rgba(${color}, 0.7))`}
+  >
+  </div>
+  <p class="textCard font-bold text-xl md:text-2xl text-white relative z-10">
+    {title}
+  </p>
+</a>
 
 <style>
   .CardLarge {
@@ -19,6 +29,7 @@ const { imageUrl, title, color } = Astro.props;
     margin-top: 0;
     cursor: pointer;
     position: relative;
+    text-decoration: none; /* Elimina el subrayado del texto en los enlaces */
   }
 
   .gradientOverlay {
@@ -38,7 +49,6 @@ const { imageUrl, title, color } = Astro.props;
   .CardLarge:hover .gradientOverlay {
     opacity: 1;
   }
-
 
   @media screen and (min-width: 720px) {
     .CardLarge {

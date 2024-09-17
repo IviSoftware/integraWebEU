@@ -1,0 +1,44 @@
+---
+import InfoPage from "../layouts/InfoPage.astro";
+
+const images = [
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/congress/Imagen-5.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/congress/Imagen-6.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/congress/videoframe.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/congress/Imagen-7.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/congress/conference_4-1.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/congress/conference_5.png",
+    alt: "image of conference",
+  },
+];
+
+const headerImageUrl =
+  "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/videoframe_16574-transformed-1-1.png";
+const headerText =
+  "Transform your medical conferences into unforgettable and profitable experiences. Increase your audience, generate more revenue, and free up your time to focus on the essentials with our proven and customized strategies.";
+const headerTitle = "Medical Conferences";
+---
+
+<InfoPage
+  title="Medical Conferences"
+  headerImageUrl={headerImageUrl}
+  headerText={headerText}
+  headerTitle={headerTitle}
+  images={images}
+/>

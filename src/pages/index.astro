@@ -3,7 +3,7 @@
 import Layout from "../layouts/Layout.astro";
 import ImageHeader from "../components/ImageHeader.astro";
 import CardLarge from "../components/CardLarge.astro";
-import ContactForm from "../components/ContactForm.astro"
+import ContactForm from "../components/ContactForm.astro";
 import NavBar from "../components/NavBar.astro";
 
 // Importa Swiper CSS
@@ -11,14 +11,13 @@ import "swiper/swiper-bundle.css";
 ---
 
 <style>
-  .swiper-container{
+  .swiper-container {
     overflow-x: hidden;
   }
 </style>
 
 <Layout title="Integra Meetings EU">
   <main>
-
     <NavBar />
 
     <header class="m-0">
@@ -26,19 +25,19 @@ import "swiper/swiper-bundle.css";
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <ImageHeader
-            imageUrl="https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/ourCompress.png"
-            text="Maximize the success and profitability of your events with Integra Meetings. We are experienced experts in medical conferences, corporate conventions and B2B exhibitions. We believe in freeing up our clients time to focus on the essentials while we take care of the rest."
-            title="INTEGRA MEETINGS"
-          />
+              imageUrl="https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/ourCompress.png"
+              text="Maximize the success and profitability of your events with Integra Meetings. We are experienced experts in medical conferences, corporate conventions and B2B exhibitions. We believe in freeing up our clients time to focus on the essentials while we take care of the rest."
+              title="INTEGRA MEETINGS"
+            />
           </div>
           <div class="swiper-slide">
             <ImageHeader
-          imageUrl="https://www.apple.com/newsroom/images/tile-images/Apples-keynote-event_tim_cook_03252019.jpg.og.jpg?202408211741"
-          text=`At Integra Meetings, we combine innovation and experience to deliver tailormade event
+              imageUrl="https://www.apple.com/newsroom/images/tile-images/Apples-keynote-event_tim_cook_03252019.jpg.og.jpg?202408211741"
+              text=`At Integra Meetings, we combine innovation and experience to deliver tailormade event
           solutions. Our professional, modern, and personalized approach ensures exceptional results in every
           project.`
-          title="ABOUT US"
-        />
+              title="ABOUT US"
+            />
           </div>
         </div>
         <div class="swiper-button-next"></div>
@@ -48,15 +47,30 @@ import "swiper/swiper-bundle.css";
     </header>
 
     <section class="w-full p-0 m-0">
-      <CardLarge imageUrl="https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/Congreso%20Medico2.png" title="Medical Conferences" color="146, 138, 81"/>
-      <CardLarge imageUrl="https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/Convenciones_corp.png" title="Corporate Conventions" color="173, 85, 76"/>
-      <CardLarge imageUrl="https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/B2B_color.png" title="B2B Exhibitions" color="25, 47, 93"/>
-      <CardLarge imageUrl="https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/process-color-banner1.png" title="Our Process" color="173, 85, 76"/>
+      <CardLarge
+        url="/congress"
+        imageUrl="https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/Congreso%20Medico2.png"
+        title="Medical Conferences"
+        color="146, 138, 81"
+      />
+      <CardLarge
+        imageUrl="https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/Convenciones_corp.png"
+        title="Corporate Conventions"
+        color="173, 85, 76"
+      />
+      <CardLarge
+        imageUrl="https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/B2B_color.png"
+        title="B2B Exhibitions"
+        color="25, 47, 93"
+      />
+      <CardLarge
+        imageUrl="https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/process-color-banner1.png"
+        title="Our Process"
+        color="173, 85, 76"
+      />
     </section>
 
     <ContactForm />
-   
-   
   </main>
 </Layout>
 
@@ -67,7 +81,7 @@ import "swiper/swiper-bundle.css";
 
   const swiper = new Swiper(".swiper-container", {
     modules: [Navigation, Pagination],
-    autoplay:true,
+    autoplay: true,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
@@ -78,6 +92,4 @@ import "swiper/swiper-bundle.css";
     },
     slidesPerView: 1,
   });
-
-
 </script>
