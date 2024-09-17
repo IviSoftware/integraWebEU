@@ -1,0 +1,48 @@
+---
+const { imageUrl, title, color } = Astro.props;
+---
+
+<div class="CardLarge relative w-full flex items-center p-4" style={`background-image: url(${imageUrl});`}>
+  <!-- Degradado delante de la imagen pero detrás del texto -->
+  <div class="gradientOverlay absolute inset-0" style={`background: linear-gradient(-90deg, transparent, rgba(${color}, 0.7))`}></div>
+  <p class="textCard font-bold text-xl md:text-2xl text-white relative z-10">{title}</p>
+</div>
+
+<style>
+  .CardLarge {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    height: 120px;
+    margin-bottom: 0;
+    margin-top: 0;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .gradientOverlay {
+    transition: opacity 200ms linear;
+    opacity: 0;
+  }
+
+  .textCard {
+    margin-left: 10px;
+    transition: all 200ms linear;
+  }
+
+  .CardLarge:hover .textCard {
+    transform: translateX(30px) scale(1.1);
+  }
+
+  .CardLarge:hover .gradientOverlay {
+    opacity: 1;
+  }
+
+
+  @media screen and (min-width: 720px) {
+    .CardLarge {
+      height: 242px;
+    }
+  }
+</style>

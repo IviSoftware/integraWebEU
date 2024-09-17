@@ -10,6 +10,7 @@ const { imageUrl, text, title } = Astro.props;
     transition: transform 2s ease;
     height: 100vh;
     width: 100vw;
+    filter: brightness(0.5);
   }
 
   .zoom {
@@ -37,8 +38,8 @@ const { imageUrl, text, title } = Astro.props;
 <div class="relative overflow-hidden">
   <div class="header zoom scroll-zoom" style={`background-image: url(${imageUrl});`} />
   <div class="text-header">
-    <h2 class="text-4xl font-bold mb-4 cssanimation sequence">{title}</h2>
-    <p class="text-xl">{text}</p>
+    <h2 class="text-xl text-center md:text-right md:pr-6 lg:text-4xl font-bold mb-2 lg:mb-4 cssanimation sequence">{title}</h2>
+    <p class="text-lg text-center md:text-right  md:pr-6 lg:text-xl">{text}</p>
   </div>
 </div>
 
