@@ -1,0 +1,83 @@
+---
+// ImageHeader.astro
+const { imageUrl, text, title } = Astro.props;
+---
+
+<style>
+  .header {
+    background-size: cover;
+    background-position: center;
+    transition: transform 2s ease;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .zoom {
+    transform: scale(1.1);
+  }
+
+  .scroll-zoom {
+    transform: scale(1);
+  }
+
+  .text-header {
+    position: absolute;
+    bottom: 8px;
+    right: 0;
+    padding: 16px;
+    color: white;
+    z-index: 10;
+    max-width: 800px;
+
+  }
+
+
+</style>
+
+<div class="relative overflow-hidden">
+  <div class="header zoom" style={`background-image: url(${imageUrl});`} />
+  <div class="text-header">
+    <h2 class="text-4xl font-bold mb-4 cssanimation sequence">{title}</h2>
+    <p class="text-xl">{text}</p>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    // Selecciona todos los headers y text-headers del DOM
+    const headers: NodeListOf<HTMLElement> = document.querySelectorAll('.header');
+    const textHeaders: NodeListOf<HTMLElement> = document.querySelectorAll('.text-header h2');
+
+    // IntersectionObserver options
+    const options: IntersectionObserverInit = {
+      root: null, // Usar el viewport
+      threshold: 0.1 // Trigger cuando el 10% del elemento es visible
+    };
+
+    // Callback para el observador
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        const header = entry.target as HTMLElement;
+        const index = Array.from(headers).indexOf(header);
+        const textHeader = textHeaders[index]; // Relaciona el header con el texto
+
+        if (entry.isIntersecting) {
+          console.log(`Header ${index + 1} es visible`);
+          header.classList.remove('scroll-zoom');
+          header.classList.add('zoom');
+          textHeader.classList.add('leFadeInTop');
+        } else {
+          console.log(`Header ${index + 1} no es visible`);
+          header.classList.add('scroll-zoom');
+          textHeader.classList.remove('leFadeInTop');
+        }
+      });
+    };
+
+    // Crear un observador para cada header
+    const observer = new IntersectionObserver(observerCallback, options);
+
+    // Observa cada header
+    headers.forEach((header) => observer.observe(header));
+  });
+</script>
