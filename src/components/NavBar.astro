@@ -16,7 +16,7 @@ function toggleMenu() {
 
 <!-- Navbar Component -->
 <nav
-  class={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-black/80 backdrop-blur-md shadow-md" : "bg-transparent"}`}
+  class={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-black/70 backdrop-blur-md shadow-md" : "bg-transparent"}`}
 >
   <div
     class="pt-10 pb-10 mx-auto px-4 py-6 sm:px-6 lg:px-8 flex justify-between items-center h-16"
@@ -100,9 +100,9 @@ function toggleMenu() {
     window.addEventListener("scroll", function () {
       const nav = document.querySelector("nav");
       if (window.scrollY > 10) {
-        nav.classList.add("bg-black/80", "backdrop-blur-md", "shadow-md");
+        nav.classList.add("bg-black/70", "backdrop-blur-md", "shadow-md");
       } else {
-        nav.classList.remove("bg-black/80", "backdrop-blur-md", "shadow-md");
+        nav.classList.remove("bg-black/70", "backdrop-blur-md", "shadow-md");
       }
     });
 
