@@ -1,0 +1,44 @@
+---
+import InfoPage from "../layouts/InfoPage.astro";
+
+const images = [
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/b2b/conceptualizacion.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/b2b/conceptualizacion_2.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/b2b/logistica-1-4.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/b2b/operacion-1-4.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/b2b/planeacion-1-5.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/b2b/tecnologia-y-data-1-4.png",
+    alt: "image of conference",
+  },
+];
+
+const headerImageUrl =
+  "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/b2b.png";
+const headerText = `Leverage our sponsorship and promotion strategies in B2B exhibitions to maximize your return
+on investment. Allow us to take care of attracting and retaining high-value sponsors while you concentrate on your event’s priorities.`;
+const headerTitle = "B2B Exhibitions";
+---
+
+<InfoPage
+  title="B2B"
+  headerImageUrl={headerImageUrl}
+  headerText={headerText}
+  headerTitle={headerTitle}
+  images={images}
+/>

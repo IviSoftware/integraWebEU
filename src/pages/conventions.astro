@@ -1,0 +1,45 @@
+---
+import InfoPage from "../layouts/InfoPage.astro";
+
+const images = [
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/conventions/planeacion-1-3.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/conventions/patrocinio-1-2.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/conventions/operacion-1-2.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/conventions/logistica-1-2.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/conventions/Imagen-9.png",
+    alt: "image of conference",
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/conventions/Imagen-8.png",
+    alt: "image of conference",
+  },
+];
+
+const headerImageUrl =
+  "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/nosotros_1.png";
+const headerText = `Boost your company’s leadership and foster a strong corporate culture with successful
+corporate conventions. Build brand awareness, motivate your team, and devote your attention to your
+strategic objectives while we handle the rest.`;
+const headerTitle = "Corporate Conventions";
+---
+
+<InfoPage
+  title="Corporate Conventions"
+  headerImageUrl={headerImageUrl}
+  headerText={headerText}
+  headerTitle={headerTitle}
+  images={images}
+/>

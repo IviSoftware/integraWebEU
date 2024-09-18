@@ -16,7 +16,7 @@ function toggleMenu() {
 
 <!-- Navbar Component -->
 <nav
-  class={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-black/40 backdrop-blur-md shadow-md" : "bg-transparent"}`}
+  class={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-black/80 backdrop-blur-md shadow-md" : "bg-transparent"}`}
 >
   <div
     class="pt-10 pb-10 mx-auto px-4 py-6 sm:px-6 lg:px-8 flex justify-between items-center h-16"
@@ -33,9 +33,11 @@ function toggleMenu() {
     </div>
 
     <!-- Menú para pantallas grandes -->
-    <div class="hidden md:flex space-x-2">
-      <a href="#home" class="text-white hover:text-gray-400">US</a>
-      <a href="#about" class="text-white hover:text-gray-400">CONTACT US</a>
+    <div class="hidden md:flex space-x-6">
+      <a href="/#home" class="text-white hover:text-gray-400 font-bold">US</a>
+      <a href="/#contact" class="text-white hover:text-gray-400 font-bold"
+        >CONTACT US</a
+      >
     </div>
 
     <!-- Botón del menú hamburguesa para pantallas móviles -->
@@ -98,9 +100,9 @@ function toggleMenu() {
     window.addEventListener("scroll", function () {
       const nav = document.querySelector("nav");
       if (window.scrollY > 10) {
-        nav.classList.add("bg-black/60", "backdrop-blur-md", "shadow-md");
+        nav.classList.add("bg-black/80", "backdrop-blur-md", "shadow-md");
       } else {
-        nav.classList.remove("bg-black/60", "backdrop-blur-md", "shadow-md");
+        nav.classList.remove("bg-black/80", "backdrop-blur-md", "shadow-md");
       }
     });
 
