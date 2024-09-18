@@ -20,11 +20,11 @@ const { imageUrl, title, color, url } = Astro.props;
 
 <style>
   .CardLarge {
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 20px;
-    height: 120px;
+    height: 300px;
     margin-bottom: 0;
     margin-top: 0;
     cursor: pointer;
@@ -52,7 +52,7 @@ const { imageUrl, title, color, url } = Astro.props;
 
   @media screen and (min-width: 720px) {
     .CardLarge {
-      height: 242px;
+      height: 260px;
     }
   }
 </style>
