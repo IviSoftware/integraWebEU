@@ -1,12 +1,13 @@
 ---
-interface ImageItem {
-  [x: string]: unknown;
-  url: string;
-  alt: string;
-}
-
 import BlackNavBar from "../components/NavBlack.astro";
 import Layout from "../layouts/Layout.astro";
+
+interface ImageItem {
+  title: string;
+  url: string;
+  alt: string;
+  text: string;
+}
 
 const images = [
   {
@@ -67,6 +68,8 @@ const colors = [
   "rgba(48, 46, 33, 0.8)", // #302E21 con 20% de opacidad
   "rgba(166, 137, 113, 0.8)", // #A68971 con 20% de opacidad
 ];
+
+const shuffledColors = [...colors].sort(() => Math.random() - 0.5);
 ---
 
 <Layout title="Our Process">
@@ -74,7 +77,7 @@ const colors = [
   <section class="ImageContainers">
     {
       images.map((image: ImageItem, index: number) => {
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        const color = shuffledColors[index];
         return (
           <div
             class="relative w-full bg-cover bg-center image-item group"
@@ -84,7 +87,7 @@ const colors = [
           >
             <div
               class="absolute inset-0 flex flex-col p-8 justify-center items-center text-white text-xl font-bold hidden group-hover:flex transition-opacity duration-500"
-              style={`background-color: ${randomColor};`}
+              style={`background-color: ${color};`}
             >
               <>
                 <p class="text-center">{image.title}</p>
@@ -112,6 +115,10 @@ const colors = [
       gap: 0;
     }
 
+    .group .hidden {
+      display: flex;
+    }
+
     @media screen and (min-width: 720px) {
       .ImageContainers {
         grid-template-columns: repeat(2, 1fr);
@@ -122,15 +129,15 @@ const colors = [
       .ImageContainers {
         grid-template-columns: repeat(3, 1fr);
       }
-    }
 
-    /* Ocultar por defecto el segundo div y mostrarlo con hover */
-    .group .hidden {
-      display: none;
-    }
+      /* Ocultar por defecto el segundo div y mostrarlo con hover */
+      .group .hidden {
+        display: none;
+      }
 
-    .group:hover .hidden {
-      display: flex;
+      .group:hover .hidden {
+        display: flex;
+      }
     }
   </style>
 </Layout>
