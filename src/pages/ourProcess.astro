@@ -1,7 +1,7 @@
 ---
 import BlackNavBar from "../components/NavBlack.astro";
 import Layout from "../layouts/Layout.astro";
-
+import Footer from "../components/Footer.astro";
 interface ImageItem {
   title: string;
   url: string;
@@ -101,43 +101,45 @@ const shuffledColors = [...colors].sort(() => Math.random() - 0.5);
     }
   </section>
 
-  <style>
-    .image-item {
-      height: 450px;
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
+  <Footer />
+</Layout>
 
+<style>
+  .image-item {
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .ImageContainers {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0;
+  }
+
+  .group .hidden {
+    display: flex;
+  }
+
+  @media screen and (min-width: 720px) {
     .ImageContainers {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 0;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 1080px) {
+    .ImageContainers {
+      grid-template-columns: repeat(3, 1fr);
     }
 
+    /* Ocultar por defecto el segundo div y mostrarlo con hover */
     .group .hidden {
+      display: none;
+    }
+
+    .group:hover .hidden {
       display: flex;
     }
-
-    @media screen and (min-width: 720px) {
-      .ImageContainers {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media screen and (min-width: 1080px) {
-      .ImageContainers {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      /* Ocultar por defecto el segundo div y mostrarlo con hover */
-      .group .hidden {
-        display: none;
-      }
-
-      .group:hover .hidden {
-        display: flex;
-      }
-    }
-  </style>
-</Layout>
+  }
+</style>
