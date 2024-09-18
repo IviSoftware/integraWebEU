@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import ImageHeader from "../components/ImageHeader.astro";
 import NavBar from "../components/NavBar.astro";
 import ImageGrid from "./ImageGrid.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title={title}>
@@ -18,4 +19,5 @@ import ImageGrid from "./ImageGrid.astro";
       <ImageGrid images={images} />
     </header>
   </main>
+  <Footer />
 </Layout>
