@@ -1,0 +1,136 @@
+---
+interface ImageItem {
+  [x: string]: unknown;
+  url: string;
+  alt: string;
+}
+
+import BlackNavBar from "../components/NavBlack.astro";
+import Layout from "../layouts/Layout.astro";
+
+const images = [
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/ourProcess/conceptualizacion.png",
+    alt: "image of conference",
+    title: "Event Conceptualization",
+    text: `We work with you to define and develop your event’s vision, ensuring every detail aligns. 
+    with your objectives and expectations. 
+    `,
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/ourProcess/planeacion.png",
+    alt: "Planning and Marketing",
+    title: "Planning and Marketing",
+    text: `We design comprehensive and effective marketing strategies that encompass event
+    promotion and attendee communication, guaranteeing an exceptional and engaging experience. 
+    `,
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/ourProcess/patrocinio.png",
+    alt: "Commercial Strategy and Sponsorshipss",
+    title: "Commercial Strategy and Sponsorshipss",
+    text: `Maximize your revenue with proven and customized commercial strategies to attract and
+retain high-value sponsors.. 
+    `,
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/ourProcess/logistica.png",
+    alt: "Logistics",
+    title: "Logistics",
+    text: `We handle comprehensive logistics management by directing the venue selection,
+transportation and attendee accommodation, ensuring a seamless experience. 
+    `,
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/ourProcess/operacion.png",
+    alt: "Operation",
+    title: "Operation",
+    text: `We oversee and coordinate all aspects of the event’s operation, ensuring that every
+    element runs smoothly and as planned. 
+    `,
+  },
+  {
+    url: "https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/ourProcess/tecnologia_data.png",
+    alt: "Technology and Data",
+    title: "Technology and Data",
+    text: `We implement innovative technologies and data analytics solutions to optimize the event
+experience, enhance efficiency, and provide valuable insights for future events.
+    `,
+  },
+];
+
+const colors = [
+  "rgba(146, 138, 81, 0.8)", // #928A51 con 20% de opacidad
+  "rgba(105, 46, 42, 0.8)", // #692E2A con 20% de opacidad
+  "rgba(25, 47, 93, 0.8)", // #192F5D con 20% de opacidad
+  "rgba(133, 132, 133, 0.8)", // #858485 con 20% de opacidad
+  "rgba(48, 46, 33, 0.8)", // #302E21 con 20% de opacidad
+  "rgba(166, 137, 113, 0.8)", // #A68971 con 20% de opacidad
+];
+---
+
+<Layout title="Our Process">
+  <BlackNavBar />
+  <section class="ImageContainers">
+    {
+      images.map((image: ImageItem, index: number) => {
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        return (
+          <div
+            class="relative w-full bg-cover bg-center image-item group"
+            style={`background-image: url('${image.url}');`}
+            role="img"
+            aria-label={image.alt}
+          >
+            <div
+              class="absolute inset-0 flex flex-col p-8 justify-center items-center text-white text-xl font-bold hidden group-hover:flex transition-opacity duration-500"
+              style={`background-color: ${randomColor};`}
+            >
+              <>
+                <p class="text-center">{image.title}</p>
+                <br />
+              </>
+              <p class="text-md font-normal text-center">{image.text}</p>
+            </div>
+          </div>
+        );
+      })
+    }
+  </section>
+
+  <style>
+    .image-item {
+      height: 450px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .ImageContainers {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 0;
+    }
+
+    @media screen and (min-width: 720px) {
+      .ImageContainers {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (min-width: 1080px) {
+      .ImageContainers {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Ocultar por defecto el segundo div y mostrarlo con hover */
+    .group .hidden {
+      display: none;
+    }
+
+    .group:hover .hidden {
+      display: flex;
+    }
+  </style>
+</Layout>

@@ -1,0 +1,115 @@
+---
+let isScrolled = false;
+let isMenuOpen = false;
+
+// Función para manejar el scroll
+function handleScroll() {
+  const scrollTop = window.scrollY;
+  isScrolled = scrollTop > 10;
+}
+
+// Función para manejar el menú
+function toggleMenu() {
+  isMenuOpen = !isMenuOpen;
+}
+---
+
+<!-- Navbar Component -->
+<nav class="w-full" style="background:black;">
+  <div
+    class="pt-10 pb-10 mx-auto px-4 py-6 sm:px-6 lg:px-8 flex justify-between items-center h-16 bg-red"
+  >
+    <!-- Logo -->
+    <div class="flex-shrink-0">
+      <a href="/">
+        <img
+          class="w-44"
+          src="https://raw.githubusercontent.com/Integra-Meetings/integraMeetingsImagenes/main/IntegraMeetings_horizontal_negativo.png"
+          alt="Logo"
+        />
+      </a>
+    </div>
+
+    <!-- Menú para pantallas grandes -->
+    <div class="hidden md:flex space-x-6">
+      <a href="/#home" class="text-white hover:text-white font-bold">US</a>
+      <a href="/#contact" class="text-white hover:text-white font-bold"
+        >CONTACT US</a
+      >
+    </div>
+
+    <!-- Botón del menú hamburguesa para pantallas móviles -->
+    <div class="md:hidden">
+      <button id="hamburgerButton" class="text-white focus:outline-none">
+        <!-- Icono del menú hamburguesa -->
+        <svg
+          class="h-6 w-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú desplegable para pantallas móviles -->
+  <div
+    id="mobileMenu"
+    class={`fixed top-0 inset-0 bg-black transition-transform transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} md:hidden z-40`}
+    style="width:100vw;height:100vh;"
+  >
+    <div class="flex flex-col items-center justify-center h-full space-y-6">
+      <a href="#home" class="text-black text-xl hover:text-gray-400">US</a>
+      <a href="#about" class="text-black text-xl hover:text-gray-400"
+        >CONTACT US</a
+      >
+
+      <!-- Botón para cerrar el menú -->
+      <button id="closeMenuButton" class="text-black focus:outline-none">
+        <!-- Icono de cerrar -->
+        <svg
+          class="h-8 w-8"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- JavaScript para manejar el scroll y el menú -->
+<script type="module">
+  if (typeof window !== "undefined") {
+    // Evento para abrir/cerrar el menú
+    const hamburgerButton = document.getElementById("hamburgerButton");
+    const closeMenuButton = document.getElementById("closeMenuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    // Abrir menú
+    hamburgerButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("-translate-x-full");
+      mobileMenu.classList.toggle("translate-x-0");
+    });
+
+    // Cerrar menú
+    closeMenuButton.addEventListener("click", function () {
+      mobileMenu.classList.add("-translate-x-full");
+      mobileMenu.classList.remove("translate-x-0");
+    });
+  }
+</script>
