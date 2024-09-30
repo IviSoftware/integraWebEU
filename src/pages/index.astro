@@ -43,7 +43,6 @@ import "swiper/swiper-bundle.css";
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
       </div>
     </header>
 
@@ -82,18 +81,14 @@ import "swiper/swiper-bundle.css";
 <script>
   // Importa Swiper y sus módulos
   import Swiper from "swiper";
-  import { Navigation, Pagination } from "swiper/modules";
+  import { Navigation } from "swiper/modules";
 
   const swiper = new Swiper(".swiper-container", {
-    modules: [Navigation, Pagination],
+    modules: [Navigation],
     autoplay: true,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
     },
     slidesPerView: 1,
   });
