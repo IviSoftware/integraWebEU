@@ -4,6 +4,26 @@ const { imageUrl, text, title } = Astro.props;
 import "animate.css";
 ---
 
+<div class="relative overflow-hidden">
+  <div
+    class="header zoom scroll-zoom"
+    style={`background-image: url(${imageUrl});`}
+  >
+  </div>
+  <div class="text-header">
+    <h2
+      class="text-xl text-center md:text-right md:pr-6 lg:text-7xl font-bold mb-2 lg:mb-4 cssanimation sequence"
+    >
+      {title}
+    </h2>
+    <p
+      class="text-lg text-center md:text-right md:pr-6 lg:text-xl animate__animated animate__bounceInRight"
+    >
+      {text}
+    </p>
+  </div>
+</div>
+
 <style>
   .header {
     background-size: cover;
@@ -24,7 +44,7 @@ import "animate.css";
 
   .text-header {
     position: absolute;
-    bottom: 25px;
+    bottom: 45px;
     right: 0;
     padding: 16px;
     color: white;
@@ -32,26 +52,6 @@ import "animate.css";
     max-width: 950px;
   }
 </style>
-
-<div class="relative overflow-hidden">
-  <div
-    class="header zoom scroll-zoom"
-    style={`background-image: url(${imageUrl});`}
-  >
-  </div>
-  <div class="text-header">
-    <h2
-      class="text-xl text-center md:text-right md:pr-6 lg:text-7xl font-bold mb-2 lg:mb-4 cssanimation sequence"
-    >
-      {title}
-    </h2>
-    <p
-      class="text-lg text-center md:text-right md:pr-6 lg:text-xl animate__animated animate__bounceInRight"
-    >
-      {text}
-    </p>
-  </div>
-</div>
 
 <script>
   window.addEventListener("load", () => {
